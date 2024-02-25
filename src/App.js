@@ -25,7 +25,7 @@ function App() {
   }
 
   return (
-    <div>
+    <div className='flex justify-center mt-10'>
       <TaskList onComplete={completeTask} removeTask={removeTask} addTask={addTask} tasks={tasks} />
     </div>
   )

@@ -11,11 +11,12 @@ function Task({ task, removeTask, onComplete }) {
     }
 
     return (
-        <div>
-            <input type="checkbox" onChange={handleComplete}/>
-            <p className={task.isCompleted ? "completed" : "notCompleted"}>{task.task}</p>
-            <p>{task.isCompleted? "TRUE" : "FALSE"}</p>
-            <button onClick={handleRemove}>Remove</button>
+        <div className="flex justify-between pt-9 text-xl">
+            <div className="flex text-2xl">
+                <input className="cursor-pointer h-8 w-7 mr-2" type="checkbox" onChange={handleComplete}/>
+                <p className={task.isCompleted ? "completed" : "notCompleted"}>{task.task}</p>
+            </div>
+            <button className="text-lg p-2 text-white bg-neutral-900" onClick={handleRemove}>Remove</button>
         </div>
     )
 }
