@@ -1,25 +1,33 @@
-import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
+import TaskList from './TaskList';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+  const [tasks, setTasks] = useState([]);
+  
+  const addTask = (item) => {
+    setTasks([ ...tasks, item ]);
+  }
 
+  const removeTask = (task) => {
+    const found = tasks.find(item => item.task === task.task);
+    if (found) {
+      setTasks(tasks.filter(item => item.task !== task.task));
+    }
+  }
+
+  const completeTask = (task) => {
+    setTasks(tasks.map((item) => (
+      item === task ?
+      {...item, isCompleted: !item.isCompleted}
+      : item
+    )))
+  }
+
+  return (
+    <div>
+      <TaskList onComplete={completeTask} removeTask={removeTask} addTask={addTask} tasks={tasks} />
+    </div>
+  )
+}
 export default App;
