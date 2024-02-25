@@ -24,10 +24,10 @@ function TaskList({ addTask, tasks, removeTask, onComplete }) {
 
     return (
         <div className="sm:max-w-xl ml-3 mr-3">
-            <h1 className="text-4xl font-medium mb-4 sm:text-3xl ">To Do list</h1>
+            <h1 className="text-3xl font-medium mb-4 sm:text-3xl ">To Do list</h1>
             <div className="flex">
-                <input className='rounded-md focus:outline-none inputBox p-4 w-full text-xl' value={todo} onChange={handleChange} type='text' placeholder='enter a task' />
-                <button className="ml-5 bg-green-500 w-40 font-medium text-lg sm:text-lg text-white hover:bg-neutral-900 rounded-md" onClick={handleAdd}>Add Task</button>
+                <input className='border-2 border-indigo-500 rounded-md focus:outline-none inputBox p-3 w-full text-xl' value={todo} onChange={handleChange} type='text' placeholder='enter a task' />
+                <button className="ml-4 bg-green-500 w-20 font-medium text-lg sm:text-lg text-white hover:bg-neutral-900 rounded-md" onClick={handleAdd}>+</button>
             </div>
             {tasks.map((item, index) => (
                 <Task onComplete={onComplete} key={index} removeTask={removeTask} task={item} tasks={tasks} />
