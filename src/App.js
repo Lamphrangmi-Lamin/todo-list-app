@@ -25,7 +25,7 @@ function App() {
   }
 
   return (
-    <div className='flex justify-center mt-10'>
+    <div className='flex justify-center mt-10 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500'>
       <TaskList onComplete={completeTask} removeTask={removeTask} addTask={addTask} tasks={tasks} />
     </div>
   )
